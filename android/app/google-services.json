@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "42268016843",
+    "project_id": "tactile-cinema-329017",
+    "storage_bucket": "tactile-cinema-329017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:42268016843:android:ff472003aff149e75a1b4e",
+        "android_client_info": {
+          "package_name": "co.akr.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "42268016843-kvmasfdtefc3mu46fha5n63qg5n88ngi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbRD29xwjofjACEZ7Iochp3o-YxPZjWtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "42268016843-kvmasfdtefc3mu46fha5n63qg5n88ngi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
