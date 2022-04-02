@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -31,6 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 email = value;
               },
               style: TextStyle(color: Colors.black),
+              keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 hintText: 'Enter your email',
                 hintStyle: TextStyle(color: Colors.grey),
@@ -57,6 +59,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 password = value;
               },
               style: TextStyle(color: Colors.black),
+              obscureText: true,
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 hintStyle: TextStyle(color: Colors.grey),
