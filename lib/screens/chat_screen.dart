@@ -1,5 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import "package:cloud_firestore/cloud_firestore.dart";
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -7,6 +10,37 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  final _fireStore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
+  User loggedInUser;
+  String messageText;
+
+  @override
+  void initState() {
+    super.initState();
+    getCurrentUser();
+  }
+
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        print(loggedInUser.email);
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  void getMessages() async {
+    final messages = await _fireStore.collection('messages').parameters();
+    for (var message in messages.docChanges) {
+      print(message);
+    }
+    print(messages);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +50,9 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
-                //Implement logout functionality
+                // _auth.signOut();
+                // Navigator.pop(context);
+                getMessages();
               }),
         ],
         title: Text('⚡️Chat'),
@@ -35,14 +71,19 @@ class _ChatScreenState extends State<ChatScreen> {
                   Expanded(
                     child: TextField(
                       onChanged: (value) {
-                        //Do something with the user input.
+                        messageText = value;
                       },
                       decoration: kMessageTextFieldDecoration,
                     ),
                   ),
                   FlatButton(
                     onPressed: () {
-                      //Implement send functionality.
+                      print("here");
+                      _fireStore.collection('messages').add({
+                        'sender': loggedInUser.email,
+                        'text': messageText,
+                        'new': "fff"
+                      });
                     },
                     child: Text(
                       'Send',
