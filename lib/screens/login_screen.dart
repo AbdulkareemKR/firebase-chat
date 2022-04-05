@@ -25,9 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                height: 200.0,
-                child: Image.asset('images/logo.png'),
+              Flexible(
+                child: Container(
+                  height: 200.0,
+                  child: Image.asset('images/logo.png'),
+                ),
               ),
               SizedBox(
                 height: 48.0,
@@ -39,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   hintText: 'Enter your email',
+                  hintStyle: TextStyle(color: Colors.grey),
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                   border: OutlineInputBorder(
@@ -67,6 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Enter your password.',
+                  hintStyle: TextStyle(color: Colors.grey),
                   contentPadding:
                       EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                   border: OutlineInputBorder(
