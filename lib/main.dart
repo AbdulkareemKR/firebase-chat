@@ -9,6 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(FlashChat());
+  
 }
 
 class FlashChat extends StatelessWidget {
